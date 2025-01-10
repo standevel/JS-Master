@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Struture</title>
+   
+</head>
+<body>
+    <!-- <p>Addition Result: 7</p> -->
+    <div id="container"></div>
+
+    <script >
+        // 1. if 
+        // 2. else
+        // 3. else if
+        // 4. switch 
+
+        const age = 68;
+        const minAge = 18;
+        const maxAge = 50;
+        const action = 'Signup';//'Pay'//'SignIn';//
+        let list = [1, 1, 3, 4, 5, 8,];
+        let operation = 'add';
+
+        if (age >= minAge && age <= maxAge) {
+            console.log('wow! you are of age');
+            console.log('wow! you are of age');
+            console.log('wow! you are of age');
+        } else if (age > maxAge) {
+            console.log('Sorry you are over aged')
+        }
+        else {
+            console.log('Sorry, you are under age')
+        }
+        // switch
+        switch (action) {
+            case 'Signup':
+                signup('learn@easylearn.com', 'Learn101', 'Chidebere', 18, '0805939393');
+                break;
+            case 'SignIn':
+
+                login('learn@easylearn.com', 'Learn101');
+
+                break;
+            case 'Pay':
+                pay()
+                break;
+            default:
+                console.log('Unrecognized action. Please Choose between, Signup, SingIn, and Pay')
+                break;
+        }
+
+        // Function 
+
+        function greet() {
+            console.log('Hi, you are welcome!')
+        }
+        function login(email, password) {
+            console.log('email: ', email);
+            console.log('password: ', password);
+        }
+
+
+        function signup(email, password, name, age, phone) {
+            console.log('Sign up successful!')
+            console.log('data: ', email, password, name, age, phone);
+
+        }
+
+        function pay() {
+            console.log('Your payment is successful!');
+
+            return 'payment successful';
+        }
+        function addTwoNumbers(num1, num2) {
+            return num1 + num2;
+        }
+        const result = addTwoNumbers(2, 5);
+        console.log('adintion result: ', result)
+
+        const multiplyTwoNumbers = (num1, num2) => {
+            return num1 * num2;
+        }
+        
+        const result1 = multiplyTwoNumbers(2, 5);
+
+
+        console.log('multiplication result : ', result1);
+
+        const p = document.createElement('p');
+        p.innerText = "Addition Result: " + result;
+
+        const p1 = document.createElement('p');
+        p1.innerText = "Multiplication Result: " + result1;
+
+        const container = document.getElementById('container');
+        container.append(p)
+        container.append(p1)
+ 
+
+    </script>
+</body>
+</html>

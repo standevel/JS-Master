@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .content {
+
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main {
+            width: 200px;
+            height: 300px;
+            background-color: grey;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+            padding: 10px;
+        }
+
+        .result {
+            width: 100%;
+            height: 50px;
+            font-size: 30px;
+        }
+
+        button {
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+        }
+
+        .action-button {
+            background-color: black;
+            color: white;
+        }
+
+        #c {
+            background-color: red;
+            color: white;
+        }
+
+        .buttons {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+    </style>
+
+    <script>
+        function enterValue(value) {
+            const result = document.getElementById('result');
+            result.value += value;
+        }
+
+        function resultInputChange() {
+            const input = document.getElementById('result');
+            console.log('input: ', input.vauel)
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <div class="content">
+        <div class="main">
+            <input class="result" type="text" id="result" readonly>
+
+            <div class="buttons">
+                <!-- row 1 -->
+                <button id="7" onclick="enterValue(7)">7</button>
+                <button id="8" onclick="enterValue(8)">8</button>
+                <button id="9" onclick="enterValue(9)">9</button>
+                <button id="+" class="action-button" onclick="enterValue('+')">+</button>
+
+                <!-- row 2 -->
+                <button id="4" onclick="enterValue(4)">4</button>
+                <button id="5" onclick="enterValue(5)">5</button>
+                <button id="6" onclick="enterValue(6)">6</button>
+                <button id="-" class="action-button" onclick="enterValue('-')">-</button>
+
+                <!-- row 3 -->
+                <button id="1" onclick="enterValue(1)">1</button>
+                <button id="2" onclick="enterValue(2)">2</button>
+                <button id="3" onclick="enterValue(3)">3</button>
+                <button id="*" class="action-button" onclick="enterValue('x')">x</button>
+
+                <!-- row 4 -->
+                <button id="c">C</button>
+                <button id="0" onclick="enterValue(0)">0</button>
+                <button id="=" class="action-button">=</button>
+                <button id="/" class="action-button" onclick="enterValue('/')">/</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        document.getElementById('c')?.addEventListener('click', (evet) => {
+            console.log('c');
+            document.getElementById('result').value = ''
+
+        })
+
+        document.getElementById('=').addEventListener('click', (evt) => {
+            const resultInput = document.getElementById('result');
+            let value = resultInput.value;
+            console.log('value 1 ', value)
+            value = value.replace('x', '*');
+            console.log('value: ', value)
+            const result = eval(value);
+
+            document.getElementById('result').value = result;
+
+        })
+
+    </script>
+</body>
+
+</html>
